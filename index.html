@@ -15,6 +15,7 @@
 
         // Function to unlock the AudioContext
         function unlockAudioContext() {
+            console.log('Trying to unlock AudioContext...');
             if (audioCtx.state === 'suspended') {
                 audioCtx.resume().then(() => {
                     console.log('AudioContext unlocked');
