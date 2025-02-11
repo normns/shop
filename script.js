@@ -38,7 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
         music.play();
 
         // 4. Start your Phaser game (inside the click handler)
-const game = new Phaser.Game(config);
+        const game = new Phaser.Game(config);
+        // Remove the start button after click
+        startButton.remove(); // or startButton.style.display = 'none';
+    });
+});
 let currentScene = 'initial';
 let customers = [];
 let orders = [];
