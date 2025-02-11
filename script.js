@@ -11,7 +11,25 @@ const config = {
         ending: showEndingScreen
     }
 };
+// ... (your other code, including your Phaser config)
 
+// 1. Get the game canvas element.  This is VERY IMPORTANT.
+//    Phaser creates a canvas element for your game.  You need to get a reference to it.
+//    There are a couple of ways to do this:
+
+// Method A: If you have set an ID for the canvas in your game config:
+const gameConfig = {
+    type: Phaser.AUTO,
+    scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH
+    },
+    canvasId: 'gameCanvas', // Add this line to your config if you don't have it.
+    // ... other config options
+};
+const gameCanvas = document.getElementById('gameCanvas'); // Get it by the ID you set.
+const game = new Phaser.Game(gameConfig);
+// ... (rest of your code)
 const game = new Phaser.Game(config);
 let currentScene = 'initial';
 let customers = [];
