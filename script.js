@@ -1,5 +1,7 @@
 const config = {
-    // ...
+    type: Phaser.AUTO,
+    width: 800,
+    height: 600,
     scene: {
         preload: preload,
         create: create,
@@ -9,7 +11,10 @@ const config = {
         game: showGameScreen,
         cutscene: showCutscene, // Add cutscene scene
         ending: showEndingScreen
-    }
+    },
+    audio: {
+        disableWebAudio: false
+    }    
 };
 const game = new Phaser.Game(config);
 let currentScene = 'initial';
