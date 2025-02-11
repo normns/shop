@@ -31,6 +31,35 @@
         document.getElementById('startButton').addEventListener('click', unlockAudioContext);
         document.addEventListener('keydown', unlockAudioContext);
         document.addEventListener('touchstart', unlockAudioContext);
+
+        // Phaser game configuration
+        var config = {
+            type: Phaser.AUTO,
+            width: 800,
+            height: 600,
+            scene: {
+                preload: preload,
+                create: create
+            },
+            audio: {
+                disableWebAudio: false
+            }
+        };
+
+        var game = new Phaser.Game(config);
+
+        function preload () {
+            // Load your audio files here
+        }
+
+        function create () {
+            // Unlock AudioContext with a user gesture
+            this.input.on('pointerdown', function () {
+                unlockAudioContext();
+            });
+            document.addEventListener('keydown', unlockAudioContext);
+            document.addEventListener('touchstart', unlockAudioContext);
+        }
     </script>
     <canvas id="gameCanvas"></canvas>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.87.0/phaser.min.js"></script>
