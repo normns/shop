@@ -12,28 +12,6 @@ const config = {
     }
 };
 const game = new Phaser.Game(config);
-const startButton = document.getElementById('startButton');
-
-// 2. Add an event listener to the Start button
-startButton.addEventListener('click', () => {
-
-    // 3. Initialize and play your Howler.js sounds (inside the click handler)
-    const music = new Howl({
-        src: ['path/to/your/music.mp3'], // Replace with your actual music path
-        loop: true,
-        // ... other Howl options
-    });
-
-    // ... initialize other Howler.js sounds
-
-    music.play();  // Or music.fade(0, 1, 2000); for a smooth fade-in
-
-    // 4. Start your Phaser game or any other game logic that should begin on click
-    const game = new Phaser.Game(gameConfig);
-
-    // Remove the start button after click
-    startButton.remove(); // or startButton.style.display = 'none';
-});
 let currentScene = 'initial';
 let customers = [];
 let orders = [];
