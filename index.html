@@ -9,6 +9,21 @@
 <body>
     <button id="startButton">Start Audio</button>
     <canvas id="gameCanvas"></canvas>
+    // Create the AudioContext
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+// Function to unlock the AudioContext
+function unlockAudioContext() {
+    if (audioCtx.state === 'suspended') {
+        audioCtx.resume().then(() => {
+            console.log('AudioContext unlocked');
+        });
+    }
+}
+
+// Add event listener to a button or any interactive element
+document.getElementById('startButton').addEventListener('click', unlockAudioContext);
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.87.0/phaser.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
     <script src="script.js"></script>
