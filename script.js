@@ -16,7 +16,7 @@ const config = {
         disableWebAudio: false
     }    
 };
-const game = new Phaser.Game(config);
+const game = new Phaser.Game();
 let currentScene = 'initial';
 let customers = [];
 let orders = [];
