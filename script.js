@@ -16,7 +16,29 @@ const config = {
         disableWebAudio: false
     }    
 };
-const game = new Phaser.Game();
+// ... (Your other code, including Phaser config if you have it defined)
+
+// Wait for the DOM to be fully loaded before trying to access the canvas and button
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Get the Start button element
+    const startButton = document.getElementById('startButton'); // Replace with your button's ID
+
+    // 2. Add an event listener to the Start button
+    startButton.addEventListener('click', () => {
+
+        // 3. Initialize and play your Howler.js sounds (inside the click handler)
+        const music = new Howl({
+            src: ['path/to/your/music.mp3'], // Replace with your actual music path
+            loop: true,
+            // ... other Howl options
+        });
+
+        // ... initialize other Howler.js sounds
+
+        music.play();
+
+        // 4. Start your Phaser game (inside the click handler)
+const game = new Phaser.Game(config);
 let currentScene = 'initial';
 let customers = [];
 let orders = [];
